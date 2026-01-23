@@ -1,15 +1,20 @@
-import Header from "./components/Header";
-import MainContent from "./components/MainContent";
-import Footer from "./components/Footer";
+/* App.css */
 
-function App() {
-  return (
-    <>
-      <Header />
-      <MainContent />
-      <Footer />
-    </>
-  );
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-export default App;
+/* Body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Root container */
+#root {
+  min-height: 100vh;
+}

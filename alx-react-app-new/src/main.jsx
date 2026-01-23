@@ -1,10 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import './App.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
+export default function MainContent() {
+  return (
+    <main
+      style={{
+        padding: '20px',
+        backgroundColor: '#f0f0f0',
+        textAlign: 'center'
+      }}
+    >
+      <p
+        style={{
+          fontSize: '18px',
+          color: '#333'
+        }}
+      >
+        I love to visit New York, Paris, and Tokyo.
+      </p>
+    </main>
+  );
+}
