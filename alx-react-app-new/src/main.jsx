@@ -1,5 +1,3 @@
-import './App.css';
-
 export default function MainContent() {
   return (
     <main
@@ -20,3 +18,4 @@ export default function MainContent() {
     </main>
   );
 }
+
