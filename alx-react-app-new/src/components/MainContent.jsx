@@ -1,26 +1,12 @@
-import UserProfile from "./UserProfile";
-
-export default function MainContent() {
+function MainContent() {
   return (
-    <main
-      style={{
-        padding: '20px',
-        backgroundColor: '#eef2f3',
-        minHeight: '300px'
-      }}
-    >
-      <UserProfile
-        name="Zakaria"
-        age={25}
-        bio="Frontend developer passionate about React and UI design."
-      />
-
-      <UserProfile
-        name="Amina"
-        age={22}
-        bio="Student interested in web development and cybersecurity."
-      />
+    <main style={{ padding: "20px", backgroundColor: "#f5f5f5" }}>
+      <p style={{ fontSize: "18px", color: "#333" }}>
+        I love to visit New York, Paris, and Tokyo.
+      </p>
     </main>
   );
 }
+
+export default MainContent;
 
