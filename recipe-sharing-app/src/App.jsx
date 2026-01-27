@@ -16,11 +16,7 @@ function App() {
             </>
           }
         />
-
-        <Route
-          path="/recipe/:id"
-          element={<RecipeDetailsWrapper />}
-        />
+        <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
       </Routes>
     </BrowserRouter>
   );
