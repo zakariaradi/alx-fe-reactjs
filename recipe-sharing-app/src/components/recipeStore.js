@@ -3,6 +3,7 @@ import { create } from 'zustand';
 const useRecipeStore = create((set) => ({
   recipes: [],
 
+  // Task 1
   addRecipe: (newRecipe) =>
     set((state) => ({
       recipes: [...state.recipes, newRecipe],
@@ -19,6 +20,22 @@ const useRecipeStore = create((set) => ({
         recipe.id === updatedRecipe.id ? updatedRecipe : recipe
       ),
     })),
+
+  // 🔍 Task 2 (Search & Filter)
+  searchTerm: '',
+  filteredRecipes: [],
+
+  setSearchTerm: (term) => set({ searchTerm: term }),
+
+  filterRecipes: () =>
+    set((state) => ({
+      filteredRecipes: state.recipes.filter((recipe) =>
+        recipe.title
+          .toLowerCase()
+          .includes(state.searchTerm.toLowerCase())
+      ),
+    })),
 }));
 
 export default useRecipeStore;
+

@@ -1,7 +1,9 @@
 import useRecipeStore from './recipeStore';
 
 const RecipeList = () => {
-  const recipes = useRecipeStore((state) => state.recipes);
+  const recipes = useRecipeStore((state) =>
+    state.searchTerm ? state.filteredRecipes : state.recipes
+  );
 
   return (
     <div>
@@ -16,3 +18,4 @@ const RecipeList = () => {
 };
 
 export default RecipeList;
+
