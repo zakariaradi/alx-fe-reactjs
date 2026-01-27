@@ -4,7 +4,6 @@ import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
 import SearchBar from './components/SearchBar';
 
-
 function App() {
   return (
     <BrowserRouter>
