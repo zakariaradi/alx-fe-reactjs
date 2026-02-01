@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchAdvancedUsers } from "../services/githubService";
+import { fetchUserData, fetchAdvancedUsers } from "../services/githubService";
 
 function Search() {
   const [username, setUsername] = useState("");
@@ -10,20 +10,30 @@ function Search() {
   const [error, setError] = useState("");
 
   const handleSearch = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setUsers([]);
+   e.preventDefault();
+   setLoading(true);
+   setError("");
+   setUsers([]);
 
-    try {
-      const data = await fetchAdvancedUsers(username, location, repos);
+   try {
+    let data;
+
+    if (!location && !repos) {
+      const user = await fetchUserData(username);
+      setUsers([user]); 
+    } 
+    
+    else {
+      data = await fetchAdvancedUsers(username, location, repos);
       setUsers(data.items);
-    } catch (err) {
-      setError("Looks like we cant find the user");
-    } finally {
-      setLoading(false);
     }
-  };
+
+  } catch (err) {
+    setError("Looks like we cant find the user");
+  } finally {
+    setLoading(false);
+  }
+ };
 
   return (
     <div className="max-w-xl mx-auto p-4">
