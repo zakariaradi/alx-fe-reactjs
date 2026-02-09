@@ -1,10 +1,11 @@
+import HomePage from "./components/HomePage";
+
 function App() {
   return (
-    <h1 className="text-blue-500 text-3xl font-bold">
-      Tailwind is working ✅
-    </h1>
-  )
+    <div className="min-h-screen bg-gray-100">
+      <HomePage />
+    </div>
+  );
 }
 
-export default App
-
+export default App;
