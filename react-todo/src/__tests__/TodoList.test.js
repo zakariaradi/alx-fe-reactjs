@@ -32,8 +32,7 @@ test("toggles todo completion", () => {
 test("deletes a todo", () => {
   render(<TodoList />);
 
-  const deleteButtons = screen.getAllByText("Delete");
-  fireEvent.click(deleteButtons[0]);
+  fireEvent.click(screen.getAllByText("Delete")[0]);
 
   expect(
     screen.queryByText("Learn React")
