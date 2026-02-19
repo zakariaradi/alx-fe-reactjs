@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Profile from "./components/Profile";
 import BlogPost from "./components/BlogPost";
 import PrivateRoute from "./routes/PrivateRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 function App() {
   return (
@@ -17,14 +19,15 @@ function App() {
         <Route path="/" element={<Home />} />
 
         {/* Protected Route */}
-        <Route
-          path="/profile/*"
-          element={
-            <PrivateRoute>
-              <Profile />
-            </PrivateRoute>
+       <Route
+         path="/profile/*"
+         element={
+           <ProtectedRoute>
+             <Profile />
+           </ProtectedRoute>
           }
-        />
+       />
+
 
         {/* ✅ Dynamic Blog Route (REQUIRED) */}
         <Route path="/blog/:id" element={<BlogPost />} />
