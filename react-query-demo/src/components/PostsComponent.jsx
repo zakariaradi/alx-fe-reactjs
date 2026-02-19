@@ -16,16 +16,18 @@ function PostsComponent() {
   const {
     data,
     isLoading,
-    isError,   
+    isError,
     error,
     refetch,
   } = useQuery("posts", fetchPosts, {
-    staleTime: 10000, 
+    staleTime: 10000,            // caching
+    cacheTime: 300000,           // ✅ REQUIRED
+    refetchOnWindowFocus: false, // ✅ REQUIRED
+    keepPreviousData: true,      // ✅ REQUIRED
   });
 
   if (isLoading) return <p>Loading...</p>;
-
-  if (isError) return <p>{error.message}</p>; 
+  if (isError) return <p>{error.message}</p>;
 
   return (
     <div>
