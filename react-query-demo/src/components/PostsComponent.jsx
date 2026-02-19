@@ -4,9 +4,11 @@ const fetchPosts = async () => {
   const response = await fetch(
     "https://jsonplaceholder.typicode.com/posts"
   );
+
   if (!response.ok) {
-    throw new Error("Network response was not ok");
+    throw new Error("Error fetching posts");
   }
+
   return response.json();
 };
 
@@ -14,7 +16,8 @@ function PostsComponent() {
   const {
     data,
     isLoading,
-    error,       
+    isError,   
+    error,
     refetch,
   } = useQuery("posts", fetchPosts, {
     staleTime: 10000, 
@@ -22,7 +25,7 @@ function PostsComponent() {
 
   if (isLoading) return <p>Loading...</p>;
 
-  if (error) return <p>Error fetching posts</p>; 
+  if (isError) return <p>{error.message}</p>; 
 
   return (
     <div>
