@@ -1,14 +1,7 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-} from "react-router-dom";
-
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Login from "./pages/Login";
-import User from "./pages/User";
+import Profile from "./components/Profile";
+import BlogPost from "./components/BlogPost";
 import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
@@ -17,7 +10,7 @@ function App() {
       <nav>
         <Link to="/">Home</Link> |{" "}
         <Link to="/profile">Profile</Link> |{" "}
-        <Link to="/user/1">User 1</Link>
+        <Link to="/blog/1">Blog 1</Link>
       </nav>
 
       <Routes>
@@ -33,10 +26,8 @@ function App() {
           }
         />
 
-        {/* Dynamic Route */}
-        <Route path="/user/:id" element={<User />} />
-
-        <Route path="/login" element={<Login />} />
+        {/* ✅ Dynamic Blog Route (REQUIRED) */}
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </BrowserRouter>
   );
